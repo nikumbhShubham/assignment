@@ -10,7 +10,7 @@ const Confirmed = () => {
         <h1 className="text-4xl font-extrabold text-gray-900">Booking Confirmed!</h1>
         <p className="text-lg text-gray-700 mt-6">
           Congratulations! Your therapy session has been successfully scheduled.
-          We're looking forward to helping you on your journey to better mental health.
+          We are looking forward to helping you on your journey to better mental health.
         </p>
 
         {/* Instructions Section */}
