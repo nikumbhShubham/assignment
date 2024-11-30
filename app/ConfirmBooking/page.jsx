@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, Suspense } from "react";
+import React, { useState, Suspense } from "react"; // Ensure Suspense is imported
 import { FaRupeeSign, FaArrowLeft } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import { useSearchParams } from "next/navigation";
@@ -44,7 +44,7 @@ const ConfirmBooking = () => {
           <FaArrowLeft /> Back
         </Link>
       </span>
-      <div className="max-w-4xl max-h-full-4xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+      <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
         {/* Header Section */}
         <div className="bg-blue-500 text-white px-6 py-4">
           <div className="flex justify-between items-center">
@@ -74,26 +74,22 @@ const ConfirmBooking = () => {
         <form className="px-6 py-4">
           {/* Name Fields */}
           <div className="grid grid-cols-2 gap-4 mb-4">
-            <div>
-              <input
-                type="text"
-                name="firstName"
-                placeholder="First Name"
-                value={formData.firstName}
-                onChange={handleInputChange}
-                className="w-full border-gray-300 rounded-md shadow-sm p-2 text-gray-700 focus:ring-blue-500 focus:border-blue-500"
-              />
-            </div>
-            <div>
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Last Name"
-                value={formData.lastName}
-                onChange={handleInputChange}
-                className="w-full border-gray-300 rounded-md shadow-sm p-2 text-gray-700 focus:ring-blue-500 focus:border-blue-500"
-              />
-            </div>
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              value={formData.firstName}
+              onChange={handleInputChange}
+              className="w-full border-gray-300 rounded-md shadow-sm p-2 text-gray-700 focus:ring-blue-500 focus:border-blue-500"
+            />
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              value={formData.lastName}
+              onChange={handleInputChange}
+              className="w-full border-gray-300 rounded-md shadow-sm p-2 text-gray-700 focus:ring-blue-500 focus:border-blue-500"
+            />
           </div>
 
           {/* Email Field */}
@@ -139,25 +135,25 @@ const ConfirmBooking = () => {
               <span className="text-gray-700">Yes, I am employed under a partnering company</span>
             </div>
             {formData.isReferred && (
-              <div className="mt-4">
-                <div className="flex gap-2 items-center">
-                  <input
-                    type="text"
-                    name="companyID"
-                    placeholder="Partnering Company Name or Company ID"
-                    value={formData.companyID}
-                    onChange={handleInputChange}
-                    className="w-full border-gray-300 rounded-md shadow-sm p-2 text-gray-700 focus:ring-blue-500 focus:border-blue-500"
-                  />
-                  <button
-                    type="button"
-                    onClick={handleVerify}
-                    className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-                  >
-                    Verify
-                  </button>
-                </div>
-                {errorMessage && <p className="text-red-500 text-sm mt-2">{errorMessage}</p>}
+              <div className="mt-4 flex gap-2 items-center">
+                <input
+                  type="text"
+                  name="companyID"
+                  placeholder="Partnering Company Name or Company ID"
+                  value={formData.companyID}
+                  onChange={handleInputChange}
+                  className="w-full border-gray-300 rounded-md shadow-sm p-2 text-gray-700 focus:ring-blue-500 focus:border-blue-500"
+                />
+                <button
+                  type="button"
+                  onClick={handleVerify}
+                  className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
+                >
+                  Verify
+                </button>
+                {errorMessage && (
+                  <p className="text-red-500 text-sm mt-2">{errorMessage}</p>
+                )}
                 {isVerified && (
                   <p className="text-green-500 text-sm mt-2">Company Verified!</p>
                 )}
@@ -166,8 +162,8 @@ const ConfirmBooking = () => {
           </div>
 
           {/* Book Session Button */}
-          <button className="w-full bg-gray-400 hover:bg-gray-500 text-white py-2 rounded-md">
-            <Link href={"/Confirmed"}>Proceed</Link>
+          <button type='submit' className="w-full bg-gray-400 hover:bg-gray-500 text-white py-2 rounded-md">
+            Proceed
           </button>
         </form>
       </div>
@@ -177,7 +173,9 @@ const ConfirmBooking = () => {
 
 export default function ConfirmBookingPage() {
   return (
+    // Wrap ConfirmBooking inside Suspense for proper loading handling.
     <Suspense fallback={<div>Loading...</div>}>
+      {/* ConfirmBooking component that uses useSearchParams */}
       <ConfirmBooking />
     </Suspense>
   );
