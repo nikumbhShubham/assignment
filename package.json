@@ -13,6 +13,12 @@
     "react": "$react",
     "react-dom": "$react-dom"
   },
+  "eslintConfig": {
+  "extends": ["next", "eslint:recommended"],
+  "rules": {
+    "react/no-unescaped-entities": "off"
+  }
+},
   "dependencies": {
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
