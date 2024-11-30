@@ -1,5 +1,5 @@
-"use client";
-import React, { useState } from "react";
+"use client"
+import React, { useState, Suspense } from "react";
 import { FaRupeeSign, FaArrowLeft } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import { useSearchParams } from "next/navigation";
@@ -39,25 +39,27 @@ const ConfirmBooking = () => {
 
   return (
     <>
-      <span className='flex items-center gap-2 m-12'>
-        <Link className="flex items-center gap-2" href={'/BookSlot'}>
+      <span className="flex items-center gap-2 m-12 ">
+        <Link className="flex items-center gap-2" href={"/BookSlot"}>
           <FaArrowLeft /> Back
         </Link>
       </span>
-
-      <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+      <div className="max-w-4xl max-h-full-4xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
         {/* Header Section */}
         <div className="bg-blue-500 text-white px-6 py-4">
           <div className="flex justify-between items-center">
             <div>
               <p className="text-white mb-4 flex flex-col items-center justify-center">
-                <Link className="flex flex-col items-center justify-center" href={'/BookSlot'}>
-                  <span className="font-medium"><SlCalender /></span>Change date
+                <Link className="flex flex-col items-center justify-center" href={"/BookSlot"}>
+                  <span className="font-medium">
+                    <SlCalender />
+                  </span>
+                  Change date
                 </Link>
               </p>
               <p className="text-sm">date: {date || "No date selected"}</p>
-              <p className="text-sm">time: {slots || "No slots selected"}</p>
-              <p className="text-sm">mode: {mode || "No mode selected"}</p>
+              <p className="text-sm">time: {slots || "No slots selected"} </p>
+              <p className="text-sm">mode: {mode || "No mode selected"} </p>
             </div>
             <div className="text-right">
               <p className="flex items-center justify-end">
@@ -163,17 +165,20 @@ const ConfirmBooking = () => {
             )}
           </div>
 
-          {/* Proceed Button */}
-          <Link
-            href={'/Confirmed'}
-            className="w-[150px] px-4  bg-gray-400 hover:bg-gray-500 text-white py-2 rounded-full flex items-center justify-center "
-          >
-            Proceed
-          </Link>
+          {/* Book Session Button */}
+          <button className="w-full bg-gray-400 hover:bg-gray-500 text-white py-2 rounded-md">
+            <Link href={"/Confirmed"}>Proceed</Link>
+          </button>
         </form>
       </div>
     </>
   );
 };
 
-export default ConfirmBooking;
+export default function ConfirmBookingPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ConfirmBooking />
+    </Suspense>
+  );
+}
