@@ -34,7 +34,7 @@ const TherapistPortfolio = () => {
             author: "Anonymous",
         },
         {
-            text: "The therapist's approach was professional yet empathetic, creating a safe space for healing.",
+            text: "This approach was professional yet empathetic, creating a safe space for healing.",
             author: "Anonymous",
         },
     ];
@@ -88,8 +88,8 @@ const TherapistPortfolio = () => {
                     <h2 className="text-2xl font-bold mb-4">About me</h2>
                     <div className='flex justify-around '>
                         <p className=' align-middle'>
-                            Hello, I'm Swetha, a licensed therapist dedicated to guiding individuals
-                            through life's challenges with empathy and expertise. With over 10 years
+                            Hello, I am Swetha, a licensed therapist dedicated to guiding individuals
+                            through lifes challenges with empathy and expertise. With over 10 years
                             of experience, I specialize in helping clients manage anxiety,
                             depression, and relationship issues through personalized,
                             evidence-based practices. <span className='text-blue-500 underline cursor-pointer'>Read more</span>
