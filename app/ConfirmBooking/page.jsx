@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, Suspense } from "react";
 import { FaRupeeSign, FaArrowLeft } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
